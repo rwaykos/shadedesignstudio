@@ -359,9 +359,16 @@ export default function InteriorStudioWebsite() {
           </div>
 
           <div className="flex gap-6 text-sm uppercase tracking-wide text-black/60">
-            <a href="#">Instagram</a>
-            <a href="#">Behance</a>
-            <a href="#">Pinterest</a>
+            <a
+              href="https://www.instagram.com/shade_designs_studio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black transition"
+            >
+              Instagram
+            </a>
+
+            
           </div>
         </div>
       </footer>
