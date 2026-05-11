@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { FaInstagram } from "react-icons/fa";
+
 export default function InteriorStudioWebsite() {
   const [submitted, setSubmitted] = useState(false);
   const projects = [
@@ -57,12 +59,13 @@ export default function InteriorStudioWebsite() {
             </a>
           </nav>
           <a
-            href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
-            target="_blank"
-            className="bg-black text-white px-5 py-2 rounded-full text-sm hover:opacity-90 transition"
-          >
-            Book Consultation
-          </a>
+  href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-black text-white px-6 py-3 rounded-full text-base font-medium tracking-wide hover:bg-neutral-800 transition duration-300"
+>
+  Book Consultation
+</a>
           {/* <a
             href="#contact"
             className="bg-black text-white px-5 py-2 rounded-full text-sm hover:opacity-90 transition"
@@ -98,13 +101,20 @@ export default function InteriorStudioWebsite() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <button className="bg-white text-black px-8 py-4 rounded-full font-medium hover:scale-105 transition">
+              
+              <a
+                href="#projects"
+                className="bg-white text-black px-8 py-4 rounded-full font-medium hover:scale-105 transition"
+              >
                 View Projects
-              </button>
-
-              <button className="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition">
+              </a>
+              <a
+                href="#services"
+                className="bg-white text-black px-8 py-4 rounded-full font-medium hover:scale-105 transition"
+              >
                 Explore Services
-              </button>
+              </a>
+              
             </div>
           </div>
         </div>
@@ -148,9 +158,9 @@ export default function InteriorStudioWebsite() {
               </h3>
             </div>
 
-            <button className="border border-black px-6 py-3 rounded-full hover:bg-black hover:text-white transition">
-              View Full Portfolio
-            </button>
+            {/* <button className="border border-black px-6 py-3 rounded-full hover:bg-black hover:text-white transition">
+              Explore Our Work
+            </button> */}
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -258,7 +268,7 @@ export default function InteriorStudioWebsite() {
           </h3>
 
           <div className="text-black/60">
-            <p className="font-medium">Rahul Mehta</p>
+            <p className="font-medium">Rahul Waykos</p>
             <p>Luxury Apartment Client</p>
           </div>
         </div>
@@ -365,10 +375,8 @@ export default function InteriorStudioWebsite() {
               rel="noopener noreferrer"
               className="hover:text-black transition"
             >
-              Instagram
+              <FaInstagram size={22} />
             </a>
-
-            
           </div>
         </div>
       </footer>
