@@ -1,7 +1,11 @@
 "use client";
 import { useState } from "react";
 import { FaInstagram } from "react-icons/fa";
-
+import { testimonials } from "./Data/testimonials";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import Image from "next/image";
+import "swiper/css";
 export default function InteriorStudioWebsite() {
   const [submitted, setSubmitted] = useState(false);
   const projects = [
@@ -59,13 +63,13 @@ export default function InteriorStudioWebsite() {
             </a>
           </nav>
           <a
-  href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-black text-white px-6 py-3 rounded-full text-base font-medium tracking-wide hover:bg-neutral-800 transition duration-300"
->
-  Book Consultation
-</a>
+            href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-black text-white px-6 py-3 rounded-full text-base font-medium tracking-wide hover:bg-neutral-800 transition duration-300"
+          >
+            Book Consultation
+          </a>
           {/* <a
             href="#contact"
             className="bg-black text-white px-5 py-2 rounded-full text-sm hover:opacity-90 transition"
@@ -78,7 +82,7 @@ export default function InteriorStudioWebsite() {
       {/* Hero */}
       <section className="relative h-screen overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=2000&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1600&auto=format&fit=crop"
           alt="Luxury Interior"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -101,7 +105,6 @@ export default function InteriorStudioWebsite() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              
               <a
                 href="#projects"
                 className="bg-white text-black px-8 py-4 rounded-full font-medium hover:scale-105 transition"
@@ -114,36 +117,10 @@ export default function InteriorStudioWebsite() {
               >
                 Explore Services
               </a>
-              
             </div>
           </div>
         </div>
       </section>
-
-      {/* About */}
-      <section id="about" className="py-28 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="uppercase tracking-[0.25em] text-sm text-black/50 mb-4">
-              About The Studio
-            </p>
-
-            <h3 className="text-4xl md:text-5xl leading-tight font-light">
-              Spaces designed around lifestyle, emotion, and detail.
-            </h3>
-          </div>
-
-          <div>
-            <p className="text-lg leading-9 text-black/70">
-              Our studio specializes in luxury interiors that blend timeless
-              aesthetics with modern functionality. Every project is carefully
-              tailored to reflect the personality, aspirations, and daily life
-              of our clients.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Projects */}
       <section id="projects" className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -224,6 +201,118 @@ export default function InteriorStudioWebsite() {
           </div>
         </div>
       </section>
+      {/* About */}
+      <section id="about" className="py-28 px-6 bg-white">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="uppercase tracking-[0.25em] text-sm text-black/50 mb-4">
+              About The Studio
+            </p>
+
+            <h3 className="text-4xl md:text-5xl leading-tight font-light">
+              Spaces designed around lifestyle, emotion, and detail.
+            </h3>
+          </div>
+
+          <div>
+            <p className="text-lg leading-9 text-black/70">
+              Our studio specializes in luxury interiors that blend timeless
+              aesthetics with modern functionality. Every project is carefully
+              tailored to reflect the personality, aspirations, and daily life
+              of our clients.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Founder */}
+      <section className="py-28 px-6 bg-[#F7F5F2]">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <Image
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
+              alt="Founder of Shade Design Studio"
+              width={600}
+              height={700}
+              className="rounded-[32px] object-cover"
+            />
+          </div>
+
+          <div>
+            <p className="uppercase tracking-[0.25em] text-sm text-black/50 mb-4">
+              Founder & Principal Designer
+            </p>
+
+            <h2 className="text-4xl md:text-5xl font-light mb-8">
+              Designing spaces that feel timeless and personal.
+            </h2>
+
+            <p className="text-black/70 leading-8 mb-6">
+              At Shade Design Studio, we believe interiors should reflect both
+              functionality and emotion. Every project is approached with a
+              balance of modern aesthetics, thoughtful detailing, and timeless
+              elegance.
+            </p>
+
+            <p className="text-black/70 leading-8">
+              Led by Rahul Waykos, the studio focuses on crafting refined
+              residential and commercial spaces across Pune and PCMC.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-28 px-6 bg-white">
+        <div className="max-w-5xl mx-auto text-center">
+          <p className="uppercase tracking-[0.25em] text-sm text-black/50 mb-4">
+            Client Experience
+          </p>
+
+          <h3 className="text-4xl md:text-5xl font-light leading-tight mb-12">
+            “The team transformed our home into something truly timeless and
+            deeply personal.”
+          </h3>
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            loop={true}
+            speed={1000}
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-[#F7F5F2] p-10 rounded-[28px] h-full">
+                  <p className="text-black/70 leading-8 mb-8">
+                    “{testimonial.review}”
+                  </p>
+
+                  <div>
+                    <h4 className="text-lg font-medium">{testimonial.name}</h4>
+
+                    <p className="text-black/50 text-sm mt-1">
+                      {testimonial.project}
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
 
       {/* Process */}
       <section className="py-28 px-6 bg-[#1F1F1F] text-white">
@@ -251,25 +340,6 @@ export default function InteriorStudioWebsite() {
                 </div>
               ),
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-28 px-6 bg-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <p className="uppercase tracking-[0.25em] text-sm text-black/50 mb-4">
-            Client Experience
-          </p>
-
-          <h3 className="text-4xl md:text-5xl font-light leading-tight mb-12">
-            “The team transformed our home into something truly timeless and
-            deeply personal.”
-          </h3>
-
-          <div className="text-black/60">
-            <p className="font-medium">Rahul Waykos</p>
-            <p>Luxury Apartment Client</p>
           </div>
         </div>
       </section>
