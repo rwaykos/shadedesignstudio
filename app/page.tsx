@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaPhoneAlt } from "react-icons/fa";
 import { testimonials } from "./Data/testimonials";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import Image from "next/image";
+
 import "swiper/css";
 export default function InteriorStudioWebsite() {
   const [submitted, setSubmitted] = useState(false);
@@ -42,13 +43,20 @@ export default function InteriorStudioWebsite() {
       {/* Navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F2]/90 backdrop-blur border-b border-black/5">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-semibold tracking-wide">
-              SHADE DESIGN STUDIO
+          {/* Logo + Studio Name */}
+          <div className="flex items-center gap-3">
+            <img
+              src="/shade-logo.png"
+              alt="Shade Design Studio"
+              className="h-12 w-auto object-contain"
+            />
+
+            <h1 className="text-xl font-semibold tracking-wide whitespace-nowrap">
+              Shade Design Studio
             </h1>
           </div>
 
-          <nav className="hidden md:flex gap-8 text-sm uppercase tracking-wide">
+          <nav className="hidden md:flex gap-8 text-sm tracking-wide">
             <a href="#projects" className="hover:opacity-60 transition">
               Projects
             </a>
@@ -62,28 +70,25 @@ export default function InteriorStudioWebsite() {
               Contact
             </a>
           </nav>
-          <a
-            href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-black text-white px-6 py-3 rounded-full text-base font-medium tracking-wide hover:bg-neutral-800 transition duration-300"
-          >
-            Book Consultation
-          </a>
-           <a
-            href="tel:+919975597846"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-black text-white px-6 py-3 rounded-full text-base font-medium tracking-wide hover:bg-neutral-800 transition duration-300"
-          >
-            CALL NOW
-          </a>
-          {/* <a
-            href="#contact"
-            className="bg-black text-white px-5 py-2 rounded-full text-sm hover:opacity-90 transition"
-          >
-            Book Consultation
-          </a> */}
+
+          <div className="flex items-center gap-3">
+            <a
+              href="tel:+919975597846"
+              className="bg-[#1F5D42] text-white px-5 py-2.5 rounded-full text-sm font-medium tracking-wide hover:bg-[#174832] transition duration-300 inline-flex items-center gap-2"
+            >
+              <FaPhoneAlt size={14} />
+              CALL US
+            </a>
+
+            <a
+              href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium tracking-wide hover:bg-neutral-800 transition duration-300"
+            >
+              Book Consultation
+            </a>
+          </div>
         </div>
       </header>
 
@@ -451,9 +456,9 @@ export default function InteriorStudioWebsite() {
               href="https://www.instagram.com/shade_designs_studio"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-black transition"
+              className="text-[#1F5D42] hover:text-black transition"
             >
-              <FaInstagram size={22} />
+              <FaInstagram size={30} />
             </a>
           </div>
         </div>
