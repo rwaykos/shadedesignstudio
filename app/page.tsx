@@ -1,14 +1,64 @@
 "use client";
 import { useState } from "react";
-import { FaInstagram, FaPhoneAlt } from "react-icons/fa";
+import { FaInstagram, FaPhoneAlt, FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { testimonials } from "./Data/testimonials";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// Individual Testimonial Card Component
+function TestimonialCard({ testimonial }: { testimonial: any }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const maxLength = 130;
+  const needsTruncation = testimonial.review.length > maxLength;
+
+  return (
+    <div className="bg-[#F7F5F2] p-8 rounded-[24px] text-left h-full flex flex-col justify-between border border-black/5 transition-all hover:border-black/15">
+      <div>
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex gap-1 text-amber-500">
+            {[...Array(5)].map((_, i) => (
+              <FaStar key={i} size={13} />
+            ))}
+          </div>
+          <span className="text-[11px] font-semibold tracking-wider text-black/40 uppercase bg-black/5 px-2.5 py-1 rounded-full">
+            Verified Client
+          </span>
+        </div>
+
+        <p className="text-black/75 text-sm leading-relaxed italic">
+          “
+          {needsTruncation && !isExpanded
+            ? `${testimonial.review.slice(0, maxLength)}...`
+            : testimonial.review}
+          ”
+        </p>
+
+        {needsTruncation && (
+          <button
+            type="button"
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="mt-2 text-xs font-semibold text-black/60 hover:text-black underline underline-offset-4 transition"
+          >
+            {isExpanded ? "Show Less" : "Read Full Review"}
+          </button>
+        )}
+      </div>
+
+      <div className="mt-6 pt-4 border-t border-black/5">
+        <h4 className="text-base font-semibold text-slate-900">
+          {testimonial.name}
+        </h4>
+        <p className="text-black/50 text-xs mt-0.5">{testimonial.project}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function InteriorStudioWebsite() {
   const [submitted, setSubmitted] = useState(false);
@@ -45,10 +95,9 @@ export default function InteriorStudioWebsite() {
 
   return (
     <div className="bg-[#F7F5F2] text-[#1F1F1F] min-h-screen font-sans scroll-smooth">
-      {/* Navbar */}
+      {/* Header / Navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F2]/80 backdrop-blur-md border-b border-black/5 transition-all">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Logo */}
           <a href="#" className="flex items-center gap-3">
             <img
               src="/shade-logo.png"
@@ -60,7 +109,6 @@ export default function InteriorStudioWebsite() {
             </h1>
           </a>
 
-          {/* Desktop Nav */}
           <nav className="hidden lg:flex gap-8 text-sm font-medium tracking-wide text-slate-800">
             <a href="#projects" className="hover:text-black hover:opacity-70 transition">Projects</a>
             <a href="#services" className="hover:text-black hover:opacity-70 transition">Services</a>
@@ -68,7 +116,6 @@ export default function InteriorStudioWebsite() {
             <a href="#contact" className="hover:text-black hover:opacity-70 transition">Contact</a>
           </nav>
 
-          {/* Action CTAs */}
           <div className="hidden sm:flex items-center gap-3">
             <a
               href="tel:+919975597846"
@@ -88,8 +135,8 @@ export default function InteriorStudioWebsite() {
             </a>
           </div>
 
-          {/* Mobile Hamburger Icon */}
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden p-2 text-2xl text-slate-900"
             aria-label="Toggle Menu"
@@ -98,7 +145,6 @@ export default function InteriorStudioWebsite() {
           </button>
         </div>
 
-        {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-[#F7F5F2] border-b border-black/10 px-6 py-6 space-y-4">
             <a
@@ -149,12 +195,12 @@ export default function InteriorStudioWebsite() {
         )}
       </header>
 
-      {/* Hero */}
+      {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1600&auto=format&fit=crop"
           alt="Luxury Interior"
-          className="absolute inset-0 w-full h-full object-cover scale-105 animate-pulse-subtle"
+          className="absolute inset-0 w-full h-full object-cover scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30" />
 
@@ -188,7 +234,7 @@ export default function InteriorStudioWebsite() {
         </div>
       </section>
 
-      {/* Projects */}
+      {/* Projects Section */}
       <section id="projects" className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="mb-14 flex flex-col md:flex-row justify-between gap-6 md:items-end">
@@ -228,7 +274,7 @@ export default function InteriorStudioWebsite() {
         </div>
       </section>
 
-      {/* Services */}
+      {/* Services Section */}
       <section id="services" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -261,7 +307,7 @@ export default function InteriorStudioWebsite() {
         </div>
       </section>
 
-      {/* About */}
+      {/* About Section */}
       <section id="about" className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
@@ -280,7 +326,7 @@ export default function InteriorStudioWebsite() {
         </div>
       </section>
 
-      {/* Founder */}
+      {/* Founder Section */}
       <section className="py-24 px-6 bg-[#F7F5F2]">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="relative">
@@ -310,47 +356,68 @@ export default function InteriorStudioWebsite() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/50 mb-3">
-            Client Experience
-          </p>
-          <h3 className="text-3xl md:text-4xl font-light leading-tight mb-16">
-            What our clients say about working with us.
-          </h3>
+      {/* Client Experience / Testimonials Section (CENTER ALIGNED) */}
+      <section className="py-24 px-6 bg-white overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          {/* Centered Header */}
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/50 mb-3">
+              Client Experience
+            </p>
+            <h3 className="text-3xl md:text-3xl font-light leading-tight">
+              What our clients say about working with us.
+            </h3>
+          </div>
 
-          <Swiper
-            modules={[Autoplay, Pagination]}
-            spaceBetween={24}
-            slidesPerView={1}
-            loop={true}
-            autoplay={{ delay: 4000, disableOnInteraction: false }}
-            pagination={{ clickable: true }}
-            breakpoints={{
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            className="pb-12"
-          >
-            {testimonials.map((testimonial, index) => (
-              <SwiperSlide key={index}>
-                <div className="bg-[#F7F5F2] p-8 rounded-[24px] text-left h-full flex flex-col justify-between border border-black/5">
-                  <p className="text-black/70 text-sm leading-relaxed mb-6 italic">
-                    “{testimonial.review}”
-                  </p>
-                  <div>
-                    <h4 className="text-base font-semibold">{testimonial.name}</h4>
-                    <p className="text-black/50 text-xs mt-0.5">{testimonial.project}</p>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <div className="relative">
+            <Swiper
+              modules={[Autoplay, Pagination, Navigation]}
+              spaceBetween={24}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{ delay: 5000, disableOnInteraction: false }}
+              pagination={{ clickable: true, dynamicBullets: true }}
+              navigation={{
+                prevEl: "#testimonial-prev",
+                nextEl: "#testimonial-next",
+              }}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              className="pb-14 !overflow-visible"
+            >
+              {testimonials.map((testimonial, index) => (
+                <SwiperSlide key={index} className="h-auto">
+                  <TestimonialCard testimonial={testimonial} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Custom Navigation Controls (Centered Below/Side Positioned) */}
+            <div className="flex items-center justify-center gap-4 mt-4">
+              <button
+                type="button"
+                id="testimonial-prev"
+                className="w-11 h-11 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition"
+                aria-label="Previous Testimonial"
+              >
+                <FaChevronLeft size={13} />
+              </button>
+              <button
+                type="button"
+                id="testimonial-next"
+                className="w-11 h-11 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition"
+                aria-label="Next Testimonial"
+              >
+                <FaChevronRight size={13} />
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Contact Form */}
+      {/* Contact Section */}
       <section id="contact" className="py-24 px-6">
         <div className="max-w-4xl mx-auto bg-[#EAE3D9] rounded-[32px] p-8 md:p-16 text-center border border-black/5 shadow-sm">
           <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/60 mb-3">
@@ -366,7 +433,7 @@ export default function InteriorStudioWebsite() {
           <form
             onSubmit={async (e) => {
               e.preventDefault();
-              const formData = new FormData(e.target);
+              const formData = new FormData(e.currentTarget);
               const response = await fetch("https://formspree.io/f/mojrpzgp", {
                 method: "POST",
                 body: formData,
@@ -374,7 +441,7 @@ export default function InteriorStudioWebsite() {
               });
               if (response.ok) {
                 setSubmitted(true);
-                e.target.reset();
+                (e.target as HTMLFormElement).reset();
               }
             }}
             className="mt-10 max-w-xl mx-auto space-y-4 text-left"
