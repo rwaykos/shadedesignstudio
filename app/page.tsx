@@ -93,6 +93,29 @@ export default function InteriorStudioWebsite() {
     { title: "Renovation & Styling", desc: "Full-scale interior transformations, art sourcing, and soft furnishing curation." },
   ];
 
+  const processSteps = [
+    {
+      step: "01",
+      title: "Discovery & Consultation",
+      desc: "We discuss your vision, functional requirements, budget, and lifestyle to establish a clear design direction.",
+    },
+    {
+      step: "02",
+      title: "Concept & Spatial Planning",
+      desc: "Developing 2D layouts, mood boards, and material palettes to visualize the spatial flow and aesthetic tone.",
+    },
+    {
+      step: "03",
+      title: "3D Visuals & Detailing",
+      desc: "Photorealistic 3D renders and detailed technical drawings covering custom joinery, lighting, and finishes.",
+    },
+    {
+      step: "04",
+      title: "Execution & Management",
+      desc: "End-to-end site management, vendor coordination, and quality control to ensure seamless turn-key delivery.",
+    },
+  ];
+
   return (
     <div className="bg-[#F7F5F2] text-[#1F1F1F] min-h-screen font-sans scroll-smooth">
       {/* Header / Navbar */}
@@ -112,6 +135,7 @@ export default function InteriorStudioWebsite() {
           <nav className="hidden lg:flex gap-8 text-sm font-medium tracking-wide text-slate-800">
             <a href="#projects" className="hover:text-black hover:opacity-70 transition">Projects</a>
             <a href="#services" className="hover:text-black hover:opacity-70 transition">Services</a>
+            <a href="#process" className="hover:text-black hover:opacity-70 transition">Process</a>
             <a href="#about" className="hover:text-black hover:opacity-70 transition">About</a>
             <a href="#contact" className="hover:text-black hover:opacity-70 transition">Contact</a>
           </nav>
@@ -160,6 +184,13 @@ export default function InteriorStudioWebsite() {
               className="block text-lg font-medium text-slate-800"
             >
               Services
+            </a>
+            <a
+              href="#process"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-lg font-medium text-slate-800"
+            >
+              Process
             </a>
             <a
               href="#about"
@@ -307,8 +338,43 @@ export default function InteriorStudioWebsite() {
         </div>
       </section>
 
+      {/* Design Process Section */}
+      <section id="process" className="py-24 px-6 bg-white border-t border-black/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/50 mb-3">
+              Our Process
+            </p>
+            <h3 className="text-3xl md:text-5xl font-light leading-tight">
+              A seamless journey from vision to handover.
+            </h3>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {processSteps.map((item, index) => (
+              <div
+                key={index}
+                className="bg-[#F7F5F2] p-8 rounded-[24px] border border-black/5 flex flex-col justify-between hover:border-black/15 transition-all"
+              >
+                <div>
+                  <span className="text-3xl font-light text-[#1F5D42] block mb-6">
+                    {item.step}
+                  </span>
+                  <h4 className="text-xl font-medium mb-3 text-slate-900">
+                    {item.title}
+                  </h4>
+                  <p className="text-black/65 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
-      <section id="about" className="py-24 px-6 bg-white">
+      <section id="about" className="py-24 px-6 bg-[#F7F5F2]">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
             <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/50 mb-3">
@@ -327,7 +393,7 @@ export default function InteriorStudioWebsite() {
       </section>
 
       {/* Founder Section */}
-      <section className="py-24 px-6 bg-[#F7F5F2]">
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="relative">
             <Image
@@ -357,14 +423,14 @@ export default function InteriorStudioWebsite() {
       </section>
 
       {/* Client Experience / Testimonials Section (CENTER ALIGNED) */}
-      <section className="py-24 px-6 bg-white overflow-hidden">
+      <section className="py-24 px-6 bg-[#F7F5F2] overflow-hidden">
         <div className="max-w-6xl mx-auto">
           {/* Centered Header */}
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/50 mb-3">
               Client Experience
             </p>
-            <h3 className="text-3xl md:text-3xl font-light leading-tight">
+            <h3 className="text-3xl md:text-5xl font-light leading-tight">
               What our clients say about working with us.
             </h3>
           </div>
@@ -394,7 +460,7 @@ export default function InteriorStudioWebsite() {
               ))}
             </Swiper>
 
-            {/* Custom Navigation Controls (Centered Below/Side Positioned) */}
+            {/* Custom Navigation Controls */}
             <div className="flex items-center justify-center gap-4 mt-4">
               <button
                 type="button"
@@ -418,7 +484,7 @@ export default function InteriorStudioWebsite() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 px-6">
+      <section id="contact" className="py-24 px-6 bg-white">
         <div className="max-w-4xl mx-auto bg-[#EAE3D9] rounded-[32px] p-8 md:p-16 text-center border border-black/5 shadow-sm">
           <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/60 mb-3">
             Start Your Project
@@ -493,26 +559,103 @@ export default function InteriorStudioWebsite() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-black/10 py-10 px-6 bg-white">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 justify-between items-center">
-          <div>
-            <h4 className="text-lg font-semibold tracking-wide">
-              SHADE DESIGN STUDIO
-            </h4>
-            <p className="text-black/50 text-xs mt-1">
-              Premium Interior Design Studio • Pune & PCMC
-            </p>
+      <footer className="border-t border-black/10 pt-16 pb-12 px-6 bg-white text-black/80">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-black/10">
+            {/* Brand Column */}
+            <div className="md:col-span-1 space-y-4">
+              <div className="flex items-center gap-3">
+                <img
+                  src="/shade-logo.png"
+                  alt="Shade Design Studio"
+                  className="h-10 w-auto object-contain"
+                />
+                <h4 className="text-base font-semibold tracking-wide text-black">
+                  SHADE DESIGN STUDIO
+                </h4>
+              </div>
+              <p className="text-xs text-black/60 leading-relaxed">
+                Designing luxury residential and commercial interiors across Pune and PCMC—blending functionality with timeless elegance.
+              </p>
+            </div>
+
+            {/* Navigation Column */}
+            <div>
+              <h5 className="text-xs font-semibold uppercase tracking-[0.15em] text-black/40 mb-4">
+                Navigation
+              </h5>
+              <ul className="space-y-2.5 text-sm">
+                <li>
+                  <a href="#projects" className="hover:text-black transition">Projects</a>
+                </li>
+                <li>
+                  <a href="#services" className="hover:text-black transition">Services</a>
+                </li>
+                <li>
+                  <a href="#process" className="hover:text-black transition">Process</a>
+                </li>
+                <li>
+                  <a href="#about" className="hover:text-black transition">About Studio</a>
+                </li>
+                <li>
+                  <a href="#contact" className="hover:text-black transition">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Get in Touch Column */}
+            <div>
+              <h5 className="text-xs font-semibold uppercase tracking-[0.15em] text-black/40 mb-4">
+                Get in Touch
+              </h5>
+              <ul className="space-y-2.5 text-sm">
+                <li>
+                  <a href="tel:+919975597846" className="hover:text-black transition font-medium">
+                    +91 99755 97846
+                  </a>
+                </li>
+                <li className="text-black/60">
+                  Pune & PCMC, Maharashtra
+                </li>
+                <li>
+                  <a
+                    href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#1F5D42] font-medium hover:underline"
+                  >
+                    Chat on WhatsApp →
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Social & Connect Column */}
+            <div>
+              <h5 className="text-xs font-semibold uppercase tracking-[0.15em] text-black/40 mb-4">
+                Connect
+              </h5>
+              <div className="flex items-center gap-4 mb-4">
+                <a
+                  href="https://www.instagram.com/shade_designs_studio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-[#F7F5F2] border border-black/5 flex items-center justify-center text-[#1F5D42] hover:bg-black hover:text-white transition"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram size={18} />
+                </a>
+              </div>
+              <p className="text-xs text-black/50">
+                Follow us on Instagram to see our latest project reveals and design behind-the-scenes.
+              </p>
+            </div>
           </div>
 
-          <a
-            href="https://www.instagram.com/shade_designs_studio"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#1F5D42] hover:text-black transition"
-            aria-label="Instagram"
-          >
-            <FaInstagram size={24} />
-          </a>
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-black/40">
+            <p>© {new Date().getFullYear()} Shade Design Studio. All rights reserved.</p>
+            <p>Designed for Luxury Living in Pune</p>
+          </div>
         </div>
       </footer>
     </div>
