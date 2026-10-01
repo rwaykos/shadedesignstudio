@@ -68,7 +68,15 @@ export default function InteriorStudioWebsite() {
             rel="noopener noreferrer"
             className="bg-black text-white px-6 py-3 rounded-full text-base font-medium tracking-wide hover:bg-neutral-800 transition duration-300"
           >
-            Book Consultation1
+            Book Consultation
+          </a>
+           <a
+            href="tel:+919975597846"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-black text-white px-6 py-3 rounded-full text-base font-medium tracking-wide hover:bg-neutral-800 transition duration-300"
+          >
+            CALL NOW
           </a>
           {/* <a
             href="#contact"
