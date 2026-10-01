@@ -68,7 +68,7 @@ export default function InteriorStudioWebsite() {
             rel="noopener noreferrer"
             className="bg-black text-white px-6 py-3 rounded-full text-base font-medium tracking-wide hover:bg-neutral-800 transition duration-300"
           >
-            Book Consultation
+            Book Consultation1
           </a>
           {/* <a
             href="#contact"
