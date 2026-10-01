@@ -339,39 +339,125 @@ export default function InteriorStudioWebsite() {
       </section>
 
       {/* Design Process Section */}
-      <section id="process" className="py-24 px-6 bg-white border-t border-black/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/50 mb-3">
-              Our Process
+   <section id="process" className="py-24 px-6 bg-[#F7F5F2] relative overflow-hidden">
+  {/* Subtly styled background ambient glow */}
+  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#1F5D42]/5 rounded-full blur-3xl pointer-events-none" />
+
+  <div className="max-w-7xl mx-auto relative z-10">
+    {/* Section Header */}
+    <div className="text-center max-w-3xl mx-auto mb-20">
+      <p className="uppercase tracking-[0.25em] text-xs font-semibold text-[#1F5D42] mb-3">
+        How We Work
+      </p>
+      <h3 className="text-3xl md:text-5xl font-light leading-tight text-slate-900">
+        From initial concept to your final key handover.
+      </h3>
+      <p className="mt-4 text-black/60 text-sm md:text-base font-light max-w-xl mx-auto">
+        A structured 4-step framework designed to eliminate guesswork, keep budgets transparent, and deliver luxury effortlessly.
+      </p>
+    </div>
+
+    {/* Process Steps Grid */}
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+      {[
+        {
+          step: "01",
+          phase: "Phase 1",
+          title: "Discovery & Brief",
+          timeframe: "Week 1",
+          desc: "In-depth lifestyle analysis, site measurements, budget alignment, and spatial vision mapping.",
+          deliverables: ["Site Survey", "Budget Matrix", "Design Brief"],
+        },
+        {
+          step: "02",
+          phase: "Phase 2",
+          title: "Concept & Spatial 3D",
+          timeframe: "Weeks 2 – 3",
+          desc: "Crafting photorealistic 3D visualizers, custom spatial layouts, lighting schemes, and material swatches.",
+          deliverables: ["3D Renders", "Mood Boards", "Layout Plans"],
+        },
+        {
+          step: "03",
+          phase: "Phase 3",
+          title: "Technical & BOQ",
+          timeframe: "Weeks 4 – 5",
+          desc: "Detailed working drawings for electrical, plumbing, joinery, and itemized Bill of Quantities (BOQ).",
+          deliverables: ["Working Drawings", "Final BOQ", "Vendor Contracts"],
+        },
+        {
+          step: "04",
+          phase: "Phase 4",
+          title: "Turnkey Execution",
+          timeframe: "Execution Phase",
+          desc: "On-site quality supervision, custom carpentry, loose furniture installation, and deep cleaning prior to handover.",
+          deliverables: ["Site Audits", "Quality Check", "Final Handover"],
+        },
+      ].map((item, index) => (
+        <div
+          key={index}
+          className="group relative bg-white rounded-[28px] p-8 border border-black/5 hover:border-[#1F5D42]/30 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between overflow-hidden"
+        >
+          {/* Large Architectural Step Number Watermark */}
+          <span className="absolute -top-4 -right-2 text-8xl font-serif text-black/[0.03] group-hover:text-[#1F5D42]/10 transition-colors duration-500 select-none pointer-events-none">
+            {item.step}
+          </span>
+
+          <div>
+            {/* Top Badge Strip */}
+            <div className="flex items-center justify-between mb-8">
+              <span className="text-[11px] font-semibold tracking-widest text-[#1F5D42] uppercase bg-[#1F5D42]/10 px-3 py-1 rounded-full">
+                {item.phase}
+              </span>
+              <span className="text-xs text-black/40 font-medium">
+                {item.timeframe}
+              </span>
+            </div>
+
+            {/* Step Heading & Description */}
+            <h4 className="text-xl font-medium text-slate-900 mb-3 group-hover:text-[#1F5D42] transition-colors">
+              {item.title}
+            </h4>
+            <p className="text-black/65 text-sm leading-relaxed mb-6 font-light">
+              {item.desc}
             </p>
-            <h3 className="text-3xl md:text-5xl font-light leading-tight">
-              A seamless journey from vision to handover.
-            </h3>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((item, index) => (
-              <div
-                key={index}
-                className="bg-[#F7F5F2] p-8 rounded-[24px] border border-black/5 flex flex-col justify-between hover:border-black/15 transition-all"
-              >
-                <div>
-                  <span className="text-3xl font-light text-[#1F5D42] block mb-6">
-                    {item.step}
-                  </span>
-                  <h4 className="text-xl font-medium mb-3 text-slate-900">
-                    {item.title}
-                  </h4>
-                  <p className="text-black/65 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
+          {/* Micro Deliverables List */}
+          <div className="pt-6 border-t border-black/5">
+            <p className="text-[10px] uppercase font-bold tracking-wider text-black/40 mb-3">
+              Deliverables
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {item.deliverables.map((tag, tagIdx) => (
+                <span
+                  key={tagIdx}
+                  className="text-[11px] bg-[#F7F5F2] text-black/70 px-2.5 py-1 rounded-md border border-black/5"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+
+    {/* Bottom Consultation Banner */}
+    <div className="mt-16 text-center">
+      <div className="inline-flex items-center gap-4 bg-white px-8 py-4 rounded-full border border-black/5 shadow-sm">
+        <p className="text-xs md:text-sm text-black/70 font-medium">
+          Ready to turn your space into a tailored home?
+        </p>
+        <a
+          href="#contact"
+          className="text-xs font-semibold text-[#1F5D42] hover:underline underline-offset-4"
+        >
+          Book Initial Consultation →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* About Section */}
       <section id="about" className="py-24 px-6 bg-[#F7F5F2]">
