@@ -52,7 +52,7 @@ export default function InteriorStudioWebsite() {
             />
 
             <h1 className="text-xl font-semibold tracking-wide whitespace-nowrap">
-              Shade Design Studio
+              Shade Design Studio1
             </h1>
           </div>
 
