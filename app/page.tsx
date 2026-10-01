@@ -1,14 +1,19 @@
 "use client";
 import { useState } from "react";
 import { FaInstagram, FaPhoneAlt } from "react-icons/fa";
+import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { testimonials } from "./Data/testimonials";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import Image from "next/image";
 
 import "swiper/css";
+import "swiper/css/pagination";
+
 export default function InteriorStudioWebsite() {
   const [submitted, setSubmitted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const projects = [
     {
       title: "Modern Luxury Apartment",
@@ -31,148 +36,191 @@ export default function InteriorStudioWebsite() {
   ];
 
   const services = [
-    "Residential Interiors",
-    "Commercial Design",
-    "Space Planning",
-    "Custom Furniture",
-    "Renovation & Styling",
+    { title: "Residential Interiors", desc: "Bespoke living spaces tailored to your daily life and aesthetic preferences." },
+    { title: "Commercial Design", desc: "Functional and impactful brand-first environments for offices and retail." },
+    { title: "Space Planning", desc: "Optimized spatial layouts designed for seamless flow and maximum utility." },
+    { title: "Custom Furniture", desc: "Handcrafted, unique furniture pieces designed specifically for your space." },
+    { title: "Renovation & Styling", desc: "Full-scale interior transformations, art sourcing, and soft furnishing curation." },
   ];
 
   return (
-    <div className="bg-[#F7F5F2] text-[#1F1F1F] min-h-screen font-sans">
+    <div className="bg-[#F7F5F2] text-[#1F1F1F] min-h-screen font-sans scroll-smooth">
       {/* Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F2]/90 backdrop-blur border-b border-black/5">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F2]/80 backdrop-blur-md border-b border-black/5 transition-all">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Logo + Studio Name */}
-          <div className="flex items-center gap-3">
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-3">
             <img
               src="/shade-logo.png"
               alt="Shade Design Studio"
               className="h-12 w-auto object-contain"
             />
-
-            <h1 className="text-xl font-semibold tracking-wide whitespace-nowrap">
+            <h1 className="text-lg md:text-xl font-semibold tracking-wide whitespace-nowrap">
               Shade Design Studio
             </h1>
-          </div>
+          </a>
 
-          <nav className="hidden md:flex gap-8 text-sm tracking-wide">
-            <a href="#projects" className="hover:opacity-60 transition">
-              Projects
-            </a>
-            <a href="#services" className="hover:opacity-60 transition">
-              Services
-            </a>
-            <a href="#about" className="hover:opacity-60 transition">
-              About
-            </a>
-            <a href="#contact" className="hover:opacity-60 transition">
-              Contact
-            </a>
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex gap-8 text-sm font-medium tracking-wide text-slate-800">
+            <a href="#projects" className="hover:text-black hover:opacity-70 transition">Projects</a>
+            <a href="#services" className="hover:text-black hover:opacity-70 transition">Services</a>
+            <a href="#about" className="hover:text-black hover:opacity-70 transition">About</a>
+            <a href="#contact" className="hover:text-black hover:opacity-70 transition">Contact</a>
           </nav>
 
-          <div className="flex items-center gap-3">
+          {/* Action CTAs */}
+          <div className="hidden sm:flex items-center gap-3">
             <a
               href="tel:+919975597846"
-              className="bg-[#1F5D42] text-white px-5 py-2.5 rounded-full text-sm font-medium tracking-wide hover:bg-[#174832] transition duration-300 inline-flex items-center gap-2"
+              className="bg-[#1F5D42] text-white px-4 py-2 rounded-full text-xs font-semibold tracking-wider hover:bg-[#174832] transition inline-flex items-center gap-2"
             >
-              <FaPhoneAlt size={14} />
-              CALL US
+              <FaPhoneAlt size={12} />
+              CALL
             </a>
 
             <a
               href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium tracking-wide hover:bg-neutral-800 transition duration-300"
+              className="bg-black text-white px-5 py-2 rounded-full text-xs font-semibold tracking-wider hover:bg-neutral-800 transition"
             >
               Book Consultation
             </a>
           </div>
+
+          {/* Mobile Hamburger Icon */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 text-2xl text-slate-900"
+            aria-label="Toggle Menu"
+          >
+            {mobileMenuOpen ? <HiX /> : <HiMenuAlt3 />}
+          </button>
         </div>
-      </header>
 
-      {/* Hero */}
-      <section className="relative h-screen overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1600&auto=format&fit=crop"
-          alt="Luxury Interior"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 bg-black/45" />
-
-        <div className="relative z-10 h-full flex items-center">
-          <div className="max-w-7xl mx-auto px-6 text-white">
-            <p className="uppercase tracking-[0.3em] text-sm mb-6 opacity-80">
-              Premium Interior Design Studio
-            </p>
-
-            <h2 className="text-5xl md:text-7xl font-light leading-tight max-w-4xl">
-              Designing Spaces That Feel Timeless.
-            </h2>
-
-            <p className="mt-8 text-lg max-w-2xl text-white/80 leading-relaxed">
-              We craft modern residential and commercial interiors with a
-              balance of luxury, functionality, and emotional connection.
-            </p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
+        {/* Mobile Dropdown Menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden bg-[#F7F5F2] border-b border-black/10 px-6 py-6 space-y-4">
+            <a
+              href="#projects"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-lg font-medium text-slate-800"
+            >
+              Projects
+            </a>
+            <a
+              href="#services"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-lg font-medium text-slate-800"
+            >
+              Services
+            </a>
+            <a
+              href="#about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-lg font-medium text-slate-800"
+            >
+              About
+            </a>
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-lg font-medium text-slate-800"
+            >
+              Contact
+            </a>
+            <div className="pt-4 flex flex-col gap-3">
               <a
-                href="#projects"
-                className="bg-white text-black px-8 py-4 rounded-full font-medium hover:scale-105 transition"
+                href="tel:+919975597846"
+                className="bg-[#1F5D42] text-white px-5 py-3 rounded-full text-sm text-center font-medium inline-flex items-center justify-center gap-2"
               >
-                View Projects
+                <FaPhoneAlt size={14} /> Call Us
               </a>
               <a
-                href="#services"
-                className="bg-white text-black px-8 py-4 rounded-full font-medium hover:scale-105 transition"
+                href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-black text-white px-5 py-3 rounded-full text-sm text-center font-medium"
               >
-                Explore Services
+                Book Consultation
               </a>
             </div>
           </div>
+        )}
+      </header>
+
+      {/* Hero */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1600&auto=format&fit=crop"
+          alt="Luxury Interior"
+          className="absolute inset-0 w-full h-full object-cover scale-105 animate-pulse-subtle"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-white pt-16">
+          <p className="uppercase tracking-[0.3em] text-xs md:text-sm font-semibold mb-4 text-white/80">
+            Premium Interior Design Studio
+          </p>
+
+          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-light leading-tight max-w-4xl tracking-tight">
+            Designing Spaces That Feel <span className="italic font-normal">Timeless</span>.
+          </h2>
+
+          <p className="mt-6 text-base sm:text-lg max-w-2xl text-white/80 leading-relaxed font-light">
+            We craft modern residential and commercial interiors with a precise balance of luxury, functionality, and emotional connection.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a
+              href="#projects"
+              className="bg-white text-black px-7 py-3.5 rounded-full text-sm font-medium hover:bg-neutral-200 transition shadow-lg"
+            >
+              View Projects
+            </a>
+            <a
+              href="#contact"
+              className="bg-transparent border border-white/40 backdrop-blur-sm text-white px-7 py-3.5 rounded-full text-sm font-medium hover:bg-white/10 transition"
+            >
+              Start Your Project
+            </a>
+          </div>
         </div>
       </section>
+
       {/* Projects */}
-      <section id="projects" className="py-20 px-6 bg-white">
+      <section id="projects" className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-16 flex flex-col md:flex-row justify-between gap-6 items-end">
+          <div className="mb-14 flex flex-col md:flex-row justify-between gap-6 md:items-end">
             <div>
-              <p className="uppercase tracking-[0.25em] text-sm text-black/50 mb-4">
+              <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/50 mb-3">
                 Featured Projects
               </p>
-
-              <h3 className="text-4xl md:text-5xl font-light max-w-2xl leading-tight">
+              <h3 className="text-3xl md:text-5xl font-light max-w-2xl leading-tight">
                 Curated interiors with timeless elegance.
               </h3>
             </div>
-
-            {/* <button className="border border-black px-6 py-3 rounded-full hover:bg-black hover:text-white transition">
-              Explore Our Work
-            </button> */}
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="group overflow-hidden rounded-[28px] bg-[#F7F5F2]"
+                className="group rounded-[24px] bg-[#F7F5F2] border border-black/5 overflow-hidden transition-all duration-300 hover:shadow-xl"
               >
-                <div className="overflow-hidden h-[420px]">
+                <div className="overflow-hidden h-[360px]">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                 </div>
 
                 <div className="p-6">
-                  <p className="uppercase text-xs tracking-[0.2em] text-black/50 mb-2">
+                  <p className="uppercase text-[11px] tracking-[0.2em] font-semibold text-black/50 mb-1">
                     {project.category}
                   </p>
-
-                  <h4 className="text-2xl font-light">{project.title}</h4>
+                  <h4 className="text-xl font-normal">{project.title}</h4>
                 </div>
               </div>
             ))}
@@ -181,14 +229,13 @@ export default function InteriorStudioWebsite() {
       </section>
 
       {/* Services */}
-      <section id="services" className="py-28 px-6">
+      <section id="services" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="uppercase tracking-[0.25em] text-sm text-black/50 mb-4">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/50 mb-3">
               Services
             </p>
-
-            <h3 className="text-4xl md:text-5xl font-light">
+            <h3 className="text-3xl md:text-5xl font-light">
               End-to-end interior design solutions.
             </h3>
           </div>
@@ -197,128 +244,104 @@ export default function InteriorStudioWebsite() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white p-10 rounded-[28px] border border-black/5 hover:-translate-y-1 transition"
+                className="bg-white p-8 rounded-[24px] border border-black/5 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300 flex flex-col justify-between"
               >
-                <div className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center text-xl mb-8">
-                  0{index + 1}
+                <div>
+                  <div className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center text-sm font-semibold mb-6 text-black/60">
+                    0{index + 1}
+                  </div>
+                  <h4 className="text-xl font-medium mb-3">{service.title}</h4>
+                  <p className="text-black/60 text-sm leading-relaxed">
+                    {service.desc}
+                  </p>
                 </div>
-
-                <h4 className="text-2xl font-light mb-4">{service}</h4>
-
-                <p className="text-black/60 leading-8">
-                  Thoughtfully designed interiors focused on aesthetics,
-                  comfort, and functionality.
-                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
       {/* About */}
-      <section id="about" className="py-28 px-6 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <section id="about" className="py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
-            <p className="uppercase tracking-[0.25em] text-sm text-black/50 mb-4">
+            <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/50 mb-3">
               About The Studio
             </p>
-
-            <h3 className="text-4xl md:text-5xl leading-tight font-light">
+            <h3 className="text-3xl md:text-5xl leading-tight font-light">
               Spaces designed around lifestyle, emotion, and detail.
             </h3>
           </div>
-
           <div>
-            <p className="text-lg leading-9 text-black/70">
-              Our studio specializes in luxury interiors that blend timeless
-              aesthetics with modern functionality. Every project is carefully
-              tailored to reflect the personality, aspirations, and daily life
-              of our clients.
+            <p className="text-base md:text-lg leading-relaxed text-black/70">
+              Our studio specializes in luxury interiors that blend timeless aesthetics with modern functionality. Every project is carefully tailored to reflect the personality, aspirations, and daily life of our clients.
             </p>
           </div>
         </div>
       </section>
 
       {/* Founder */}
-      <section className="py-28 px-6 bg-[#F7F5F2]">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div>
+      <section className="py-24 px-6 bg-[#F7F5F2]">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="relative">
             <Image
-              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
-              alt="Founder of Shade Design Studio"
+              src="/Founder.jpeg"
+              alt="Chaitali Waykos - Founder"
               width={600}
               height={700}
-              className="rounded-[32px] object-cover"
+              className="rounded-[28px] object-cover shadow-lg"
             />
           </div>
 
           <div>
-            <p className="uppercase tracking-[0.25em] text-sm text-black/50 mb-4">
+            <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/50 mb-3">
               Founder & Principal Designer
             </p>
-
-            <h2 className="text-4xl md:text-5xl font-light mb-8">
+            <h2 className="text-3xl md:text-4xl font-light mb-6 leading-snug">
               Designing spaces that feel timeless and personal.
             </h2>
-
-            <p className="text-black/70 leading-8 mb-6">
-              At Shade Design Studio, we believe interiors should reflect both
-              functionality and emotion. Every project is approached with a
-              balance of modern aesthetics, thoughtful detailing, and timeless
-              elegance.
+            <p className="text-black/70 text-base leading-relaxed mb-4">
+              At Shade Design Studio, we believe interiors should reflect both functionality and emotion. Every project is approached with a balance of modern aesthetics, thoughtful detailing, and timeless elegance.
             </p>
-
-            <p className="text-black/70 leading-8">
-              Led by Rahul Waykos, the studio focuses on crafting refined
-              residential and commercial spaces across Pune and PCMC.
+            <p className="text-black/70 text-base leading-relaxed font-medium">
+              Led by Chaitali Waykos, the studio focuses on crafting refined residential and commercial spaces across Pune and PCMC.
             </p>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-28 px-6 bg-white">
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-5xl mx-auto text-center">
-          <p className="uppercase tracking-[0.25em] text-sm text-black/50 mb-4">
+          <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/50 mb-3">
             Client Experience
           </p>
-
-          <h3 className="text-4xl md:text-5xl font-light leading-tight mb-12">
-            “The team transformed our home into something truly timeless and
-            deeply personal.”
+          <h3 className="text-3xl md:text-4xl font-light leading-tight mb-16">
+            What our clients say about working with us.
           </h3>
+
           <Swiper
-            modules={[Autoplay]}
-            spaceBetween={30}
+            modules={[Autoplay, Pagination]}
+            spaceBetween={24}
             slidesPerView={1}
             loop={true}
-            speed={1000}
-            autoplay={{
-              delay: 3500,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
             breakpoints={{
-              768: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 3,
-              },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
             }}
+            className="pb-12"
           >
             {testimonials.map((testimonial, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-[#F7F5F2] p-10 rounded-[28px] h-full">
-                  <p className="text-black/70 leading-8 mb-8">
+                <div className="bg-[#F7F5F2] p-8 rounded-[24px] text-left h-full flex flex-col justify-between border border-black/5">
+                  <p className="text-black/70 text-sm leading-relaxed mb-6 italic">
                     “{testimonial.review}”
                   </p>
-
                   <div>
-                    <h4 className="text-lg font-medium">{testimonial.name}</h4>
-
-                    <p className="text-black/50 text-sm mt-1">
-                      {testimonial.project}
-                    </p>
+                    <h4 className="text-base font-semibold">{testimonial.name}</h4>
+                    <p className="text-black/50 text-xs mt-0.5">{testimonial.project}</p>
                   </div>
                 </div>
               </SwiperSlide>
@@ -327,114 +350,75 @@ export default function InteriorStudioWebsite() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="py-28 px-6 bg-[#1F1F1F] text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <p className="uppercase tracking-[0.25em] text-sm text-white/50 mb-4">
-              Our Process
-            </p>
-
-            <h3 className="text-4xl md:text-5xl font-light max-w-3xl leading-tight">
-              A seamless journey from concept to completion.
-            </h3>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            {["Discovery", "Concept Design", "Execution", "Final Styling"].map(
-              (step, index) => (
-                <div key={index}>
-                  <p className="text-5xl text-white/20 mb-6">0{index + 1}</p>
-                  <h4 className="text-2xl mb-4 font-light">{step}</h4>
-                  <p className="text-white/60 leading-8">
-                    We collaborate closely with clients to create spaces that
-                    feel intentional and refined.
-                  </p>
-                </div>
-              ),
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section id="contact" className="py-32 px-6">
-        <div className="max-w-6xl mx-auto bg-[#D8C3A5] rounded-[40px] p-10 md:p-20 text-center">
-          <p className="uppercase tracking-[0.25em] text-sm text-black/60 mb-4">
+      {/* Contact Form */}
+      <section id="contact" className="py-24 px-6">
+        <div className="max-w-4xl mx-auto bg-[#EAE3D9] rounded-[32px] p-8 md:p-16 text-center border border-black/5 shadow-sm">
+          <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/60 mb-3">
             Start Your Project
           </p>
-
-          <h3 className="text-4xl md:text-6xl font-light leading-tight max-w-4xl mx-auto">
+          <h3 className="text-3xl md:text-5xl font-light leading-tight max-w-2xl mx-auto">
             Let’s create a space that reflects your story.
           </h3>
-
-          <p className="mt-8 text-lg text-black/70 max-w-2xl mx-auto leading-8">
-            Connect with us for premium residential and commercial interior
-            design solutions tailored to your lifestyle.
+          <p className="mt-4 text-sm md:text-base text-black/70 max-w-xl mx-auto leading-relaxed">
+            Connect with us for luxury residential and commercial interior design solutions.
           </p>
 
           <form
             onSubmit={async (e) => {
               e.preventDefault();
-
               const formData = new FormData(e.target);
-
               const response = await fetch("https://formspree.io/f/mojrpzgp", {
                 method: "POST",
                 body: formData,
-                headers: {
-                  Accept: "application/json",
-                },
+                headers: { Accept: "application/json" },
               });
-
               if (response.ok) {
                 setSubmitted(true);
                 e.target.reset();
               }
             }}
-            className="mt-10 max-w-2xl mx-auto space-y-4"
+            className="mt-10 max-w-xl mx-auto space-y-4 text-left"
           >
             <input
               type="text"
               name="name"
               placeholder="Your Name"
               required
-              className="w-full p-4 rounded-2xl border border-black/10 bg-white"
+              className="w-full p-4 rounded-xl border border-black/10 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black text-sm"
             />
-
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              required
-              className="w-full p-4 rounded-2xl border border-black/10 bg-white"
-            />
-
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone Number"
-              className="w-full p-4 rounded-2xl border border-black/10 bg-white"
-            />
-
+            <div className="grid md:grid-cols-2 gap-4">
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+                className="w-full p-4 rounded-xl border border-black/10 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black text-sm"
+              />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                className="w-full p-4 rounded-xl border border-black/10 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black text-sm"
+              />
+            </div>
             <textarea
               name="message"
-              placeholder="Tell us about your project"
-              rows={5}
+              placeholder="Tell us about your project..."
+              rows={4}
               required
-              className="w-full p-4 rounded-2xl border border-black/10 bg-white"
+              className="w-full p-4 rounded-xl border border-black/10 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black text-sm"
             ></textarea>
 
             <button
               type="submit"
-              className="bg-black text-white px-8 py-4 rounded-full hover:opacity-90 transition"
+              className="w-full bg-black text-white py-4 rounded-full text-sm font-semibold hover:bg-neutral-800 transition shadow-md"
             >
               Send Inquiry
             </button>
 
             {submitted && (
-              <p className="text-green-700 pt-4">
-                Thank you! Your inquiry has been submitted successfully.
+              <p className="text-emerald-800 font-medium text-sm text-center pt-2">
+                ✓ Thank you! Your inquiry has been submitted successfully.
               </p>
             )}
           </form>
@@ -442,25 +426,26 @@ export default function InteriorStudioWebsite() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-black/10 py-10 px-6">
+      <footer className="border-t border-black/10 py-10 px-6 bg-white">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 justify-between items-center">
           <div>
-            <h4 className="text-2xl font-semibold tracking-wide">
+            <h4 className="text-lg font-semibold tracking-wide">
               SHADE DESIGN STUDIO
             </h4>
-            <p className="text-black/50 mt-2">Premium Interior Design Studio</p>
+            <p className="text-black/50 text-xs mt-1">
+              Premium Interior Design Studio • Pune & PCMC
+            </p>
           </div>
 
-          <div className="flex gap-6 text-sm uppercase tracking-wide text-black/60">
-            <a
-              href="https://www.instagram.com/shade_designs_studio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#1F5D42] hover:text-black transition"
-            >
-              <FaInstagram size={30} />
-            </a>
-          </div>
+          <a
+            href="https://www.instagram.com/shade_designs_studio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#1F5D42] hover:text-black transition"
+            aria-label="Instagram"
+          >
+            <FaInstagram size={24} />
+          </a>
         </div>
       </footer>
     </div>
