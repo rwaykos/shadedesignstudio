@@ -274,14 +274,6 @@ export const projects: Project[] = [
         alt: "Minimal living room interior",
       },
       {
-        src: "/projects/Sai Vista/15.jpg",
-        alt: "Elegant bedroom interior",
-      },
-      {
-        src: "/projects/Sai Vista/16.jpg",
-        alt: "Minimal apartment interior in Kharadi Pune",
-      },
-      {
         src: "/projects/Sai Vista/17.jpg",
         alt: "Minimal living room interior",
       },
