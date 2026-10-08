@@ -251,8 +251,7 @@ export default function InteriorStudioWebsite() {
           </p>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light leading-tight max-w-4xl tracking-tight">
-            Designing Spaces That Feel Timeless | Interior Designer in Pune
-            <span className="italic font-normal">Timeless</span>.
+            Designing Spaces That Feel Timeless.
           </h1>
 
           <p className="mt-6 text-base sm:text-lg max-w-2xl text-white/80 leading-relaxed font-light">
