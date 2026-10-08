@@ -383,7 +383,7 @@ export default function InteriorStudioWebsite() {
       <div className="group border-b border-neutral-300 py-6 md:py-7">
         <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
 
-          <h3 className="text-xl md:text-2xl font-medium tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
+          <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
             Residential Interiors
           </h3>
 
@@ -398,8 +398,7 @@ export default function InteriorStudioWebsite() {
       {/* Space Planning */}
       <div className="group border-b border-neutral-300 py-6 md:py-7">
         <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
-
-          <h3 className="text-xl md:text-2xl font-medium tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
+          <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
             Space Planning & 3D Visuals
           </h3>
 
@@ -415,7 +414,7 @@ export default function InteriorStudioWebsite() {
       <div className="group border-b border-neutral-300 py-6 md:py-7">
         <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
 
-          <h3 className="text-xl md:text-2xl font-medium tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
+          <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
             Modular Kitchens & Custom Furniture
           </h3>
 
@@ -431,7 +430,7 @@ export default function InteriorStudioWebsite() {
       <div className="group border-b border-neutral-300 py-6 md:py-7">
         <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
 
-          <h3 className="text-xl md:text-2xl font-medium tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
+          <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
             Turnkey Execution
           </h3>
 
@@ -447,7 +446,7 @@ export default function InteriorStudioWebsite() {
       <div className="group border-b border-neutral-300 py-6 md:py-7">
         <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
 
-          <h3 className="text-xl md:text-2xl font-medium tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
+          <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
             Interior Styling
           </h3>
 
