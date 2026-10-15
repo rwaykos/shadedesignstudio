@@ -226,14 +226,16 @@ export default function InteriorStudioWebsite() {
               >
                 <FaPhoneAlt size={14} /> Call Us
               </a>
-              <a
-                href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-black text-white px-5 py-3 rounded-full text-sm text-center font-medium"
-              >
-                Book Consultation
-              </a>
+             <a
+  href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-[#12334A] text-white px-5 py-2 rounded-full text-xs font-semibold tracking-wide hover:bg-[#A95737] transition inline-flex items-center gap-2"
+>
+  <FaWhatsapp size={16} />
+  Book via WhatsApp
+</a>
+
             </div>
           </div>
         )}
