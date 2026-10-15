@@ -8,6 +8,7 @@ import {
   FaStar,
   FaChevronLeft,
   FaChevronRight,
+  FaWhatsapp
 } from "react-icons/fa";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { testimonials } from "./Data/testimonials";
@@ -27,7 +28,7 @@ function TestimonialCard({ testimonial }: { testimonial: any }) {
   const needsTruncation = testimonial.review.length > maxLength;
 
   return (
-    <div className="bg-[#F7F5F2] p-8 rounded-[24px] text-left h-full flex flex-col justify-between border border-black/5 transition-all hover:border-black/15">
+    <div className="bg-[#F7F1E7] p-8 rounded-[24px] text-left h-full flex flex-col justify-between border border-black/5 transition-all hover:border-black/15">
       <div>
         <div className="flex items-center justify-between mb-4">
           <div className="flex gap-1 text-amber-500">
@@ -97,9 +98,9 @@ export default function InteriorStudioWebsite() {
   ];
 
   return (
-    <div className="bg-[#F7F5F2] text-[#1F1F1F] min-h-screen font-sans scroll-smooth">
+    <div className="bg-[#F7F1E7] text-[#12334A] min-h-screen font-sans scroll-smooth">
       {/* Header / Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F5F2]/80 backdrop-blur-md border-b border-black/5 transition-all">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F1E7]/80 backdrop-blur-md border-b border-black/5 transition-all">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
             <Image
@@ -116,12 +117,6 @@ export default function InteriorStudioWebsite() {
 
           <nav className="hidden lg:flex gap-8 text-sm font-medium tracking-wide text-slate-800">
             <a
-              href="#projects"
-              className="hover:text-black hover:opacity-70 transition"
-            >
-              Projects
-            </a>
-            <a
               href="#services"
               className="hover:text-black hover:opacity-70 transition"
             >
@@ -133,6 +128,13 @@ export default function InteriorStudioWebsite() {
             >
               Process
             </a>
+            <a
+              href="#portfolios"
+              className="hover:text-black hover:opacity-70 transition"
+            >
+              Portfolios
+            </a>
+            
             <a
               href="#about"
               className="hover:text-black hover:opacity-70 transition"
@@ -150,20 +152,23 @@ export default function InteriorStudioWebsite() {
           <div className="hidden sm:flex items-center gap-3">
             <a
               href="tel:+919975597846"
-              className="bg-[#1F5D42] text-white px-4 py-2 rounded-full text-xs font-semibold tracking-wider hover:bg-[#174832] transition inline-flex items-center gap-2"
+              className="bg-[#12334A] text-white px-4 py-2 rounded-full text-xs font-semibold tracking-wider hover:bg-[#A95737] transition inline-flex items-center gap-2"
             >
               <FaPhoneAlt size={12} />
               CALL
             </a>
 
-            <a
-              href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-black text-white px-5 py-2 rounded-full text-xs font-semibold tracking-wider hover:bg-neutral-800 transition"
-            >
-              Book Consultation
-            </a>
+            
+<a
+  href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-[#12334A] text-white px-5 py-2 rounded-full text-xs font-semibold tracking-wide hover:bg-[#A95737] transition inline-flex items-center gap-2"
+>
+  <FaWhatsapp size={16} />
+  Book via WhatsApp
+</a>
+
           </div>
 
           <button
@@ -177,14 +182,7 @@ export default function InteriorStudioWebsite() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#F7F5F2] border-b border-black/10 px-6 py-6 space-y-4">
-            <a
-              href="#projects"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block text-lg font-medium text-slate-800"
-            >
-              Projects
-            </a>
+          <div className="lg:hidden bg-[#F7F1E7] border-b border-black/10 px-6 py-6 space-y-4">
             <a
               href="#services"
               onClick={() => setMobileMenuOpen(false)}
@@ -199,6 +197,14 @@ export default function InteriorStudioWebsite() {
             >
               Process
             </a>
+            <a
+              href="#portfolios"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-lg font-medium text-slate-800"
+            >
+              Portfolio
+            </a>
+            
             <a
               href="#about"
               onClick={() => setMobileMenuOpen(false)}
@@ -216,7 +222,7 @@ export default function InteriorStudioWebsite() {
             <div className="pt-4 flex flex-col gap-3">
               <a
                 href="tel:+919975597846"
-                className="bg-[#1F5D42] text-white px-5 py-3 rounded-full text-sm text-center font-medium inline-flex items-center justify-center gap-2"
+                className="bg-[#12334A] text-white px-5 py-3 rounded-full text-sm text-center font-medium inline-flex items-center justify-center gap-2"
               >
                 <FaPhoneAlt size={14} /> Call Us
               </a>
@@ -261,10 +267,10 @@ export default function InteriorStudioWebsite() {
 
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href="#projects"
+              href="#portfolios"
               className="bg-white text-black px-7 py-3.5 rounded-full text-sm font-medium hover:bg-neutral-200 transition shadow-lg"
             >
-              View Projects
+              View Portfolio
             </a>
             <a
               href="#contact"
@@ -276,11 +282,11 @@ export default function InteriorStudioWebsite() {
         </div>
       </section>
       {/* Projects Section */}
-      <section id="projects" className="py-24 px-6 bg-white">
+      <section id="portfolios" className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="max-w-3xl mb-14">
-            <p className="text-sm font-semibold tracking-[0.25em] uppercase text-[#1F5D42] mb-4">
+            <p className="text-sm font-semibold tracking-[0.25em] uppercase text-[#12334A] mb-4">
               Selected Portfolio
             </p>
 
@@ -341,248 +347,235 @@ export default function InteriorStudioWebsite() {
 
           {/* Bottom CTA */}
           <div className="mt-14 flex justify-center">
-            <Link
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-[#1F5D42] text-white px-7 py-3.5 rounded-full font-medium hover:bg-[#174832] transition"
-            >
-              Start Your Project
-              <span>→</span>
-            </Link>
+            
+<a
+  href="#contact"
+  className="inline-flex items-center gap-2 bg-[#12334A] text-white px-7 py-3.5 rounded-full font-medium hover:bg-[#A95737] transition"
+>
+  Start Your Project
+  <span>→</span>
+</a>
+
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-<section id="services" className="bg-[#F7F5F2] py-20 md:py-24">
-  <div className="max-w-7xl mx-auto px-6">
+      <section id="services" className="bg-[#F7F1E7] py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Section Header */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-12">
+            <div>
+              <p className="text-sm uppercase tracking-[0.22em] text-[#12334A] mb-4">
+                Our Services
+              </p>
 
-    {/* Section Header */}
-    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-12">
-      <div>
-        <p className="text-sm uppercase tracking-[0.22em] text-[#1F5D42] mb-4">
-          Our Services
-        </p>
-
-        <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.08]">
-          Thoughtful design,
-          <br />
-          from concept to completion.
-        </h2>
-      </div>
-
-      <p className="text-neutral-600 text-base md:text-lg leading-relaxed max-w-xl">
-        We create considered interiors that balance aesthetics,
-        functionality and the way you live.
-      </p>
-    </div>
-
-    {/* Services List */}
-    <div className="border-t border-neutral-300">
-
-      {/* Residential Interiors */}
-      <div className="group border-b border-neutral-300 py-6 md:py-7">
-        <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
-
-          <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
-            Residential Interiors
-          </h3>
-
-          <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-2xl">
-            Personalised interiors designed around your lifestyle,
-            taste and everyday needs.
-          </p>
-
-        </div>
-      </div>
-
-      {/* Space Planning */}
-      <div className="group border-b border-neutral-300 py-6 md:py-7">
-        <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
-          <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
-            Space Planning & 3D Visuals
-          </h3>
-
-          <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-2xl">
-            Smart layouts and realistic visualisation to help you
-            experience the space before execution.
-          </p>
-
-        </div>
-      </div>
-
-      {/* Modular Kitchens */}
-      <div className="group border-b border-neutral-300 py-6 md:py-7">
-        <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
-
-          <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
-            Modular Kitchens & Custom Furniture
-          </h3>
-
-          <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-2xl">
-            Custom solutions designed to maximise storage,
-            functionality and visual simplicity.
-          </p>
-
-        </div>
-      </div>
-
-      {/* Turnkey Execution */}
-      <div className="group border-b border-neutral-300 py-6 md:py-7">
-        <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
-
-          <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
-            Turnkey Execution
-          </h3>
-
-          <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-2xl">
-            A coordinated design-to-execution experience with
-            attention to craftsmanship, quality and every detail.
-          </p>
-
-        </div>
-      </div>
-
-      {/* Interior Styling */}
-      <div className="group border-b border-neutral-300 py-6 md:py-7">
-        <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
-
-          <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#1F5D42]">
-            Interior Styling
-          </h3>
-
-          <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-2xl">
-            The finishing layer of materials, lighting, colours
-            and décor that brings the entire space together.
-          </p>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-      {/* Design Process Section */}
-      {/* Design Process Section */}
-<section
-  id="process"
-  className="py-16 md:py-20 px-6 bg-[#F7F5F2] relative overflow-hidden"
->
-  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#1F5D42]/5 rounded-full blur-3xl pointer-events-none" />
-
-  <div className="max-w-7xl mx-auto relative z-10">
-
-    {/* Section Heading */}
-    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-14">
-      <p className="uppercase tracking-[0.25em] text-xs font-semibold text-[#1F5D42] mb-3">
-        Our Design Journey
-      </p>
-
-      <h2 className="text-3xl md:text-5xl font-light leading-tight text-slate-900">
-        From your first idea to a space that feels like home.
-      </h2>
-
-      <p className="mt-4 text-black/60 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed">
-        Every project begins with understanding you. We combine thoughtful
-        design, detailed planning, and careful execution to create spaces
-        that are beautiful, functional, and uniquely yours.
-      </p>
-    </div>
-
-    {/* Process Cards */}
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-      {[
-        {
-          number: "01",
-          title: "Discover",
-          subtitle: "We listen before we design.",
-          desc: "We understand your lifestyle, preferences, aspirations, space, and budget. This is where your ideas become the foundation of the design.",
-          tags: ["Client Brief", "Site Visit", "Lifestyle & Needs"],
-        },
-        {
-          number: "02",
-          title: "Imagine",
-          subtitle: "Your space starts taking shape.",
-          desc: "We translate ideas into layouts, mood boards, materials, colours, lighting concepts, and realistic 3D visuals so you can experience the design before execution.",
-          tags: ["Space Planning", "Mood Boards", "3D Visuals"],
-        },
-        {
-          number: "03",
-          title: "Refine",
-          subtitle: "Every detail has a purpose.",
-          desc: "Once the design direction is approved, we refine every element—from finishes and furniture to electrical points, joinery details, and final specifications.",
-          tags: ["Material Selection", "Working Drawings", "BOQ"],
-        },
-        {
-          number: "04",
-          title: "Create",
-          subtitle: "We bring the vision to life.",
-          desc: "Our team coordinates execution, craftsmanship, installations, and quality checks while keeping the design intent at the heart of every detail.",
-          tags: ["Execution", "Site Supervision", "Handover"],
-        },
-      ].map((item, index) => (
-        <div
-          key={index}
-          className="group relative bg-white rounded-[24px] p-6 md:p-7 border border-black/5 shadow-sm hover:shadow-lg hover:-translate-y-1.5 transition-all duration-500 overflow-hidden"
-        >
-          {/* Background Number */}
-          <span className="absolute -top-4 -right-1 text-[90px] font-serif text-black/[0.035] group-hover:text-[#1F5D42]/10 transition-colors duration-500 select-none pointer-events-none">
-            {item.number}
-          </span>
-
-          <div className="relative z-10">
-
-            {/* Number + Line */}
-            <div className="flex items-center gap-3 mb-7">
-              <div className="w-10 h-10 rounded-full bg-[#1F5D42] text-white flex items-center justify-center text-[11px] font-semibold shrink-0">
-                {item.number}
-              </div>
-
-              <div className="h-px flex-1 bg-black/10" />
+              <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.08]">
+                Thoughtful design,
+                <br />
+                from concept to completion.
+              </h2>
             </div>
 
-            {/* Title */}
-            <h3 className="text-2xl font-light text-slate-900 mb-2 group-hover:text-[#1F5D42] transition-colors">
-              {item.title}
-            </h3>
-
-            {/* Subtitle */}
-            <p className="text-sm font-medium text-black/50 mb-4">
-              {item.subtitle}
+            <p className="text-neutral-600 text-base md:text-lg leading-relaxed max-w-xl">
+              We create considered interiors that balance aesthetics,
+              functionality and the way you live.
             </p>
+          </div>
 
-            {/* Description */}
-            <p className="text-black/65 text-sm leading-relaxed font-light">
-              {item.desc}
-            </p>
+          {/* Services List */}
+          <div className="border-t border-neutral-300">
+            {/* Residential Interiors */}
+            <div className="group border-b border-neutral-300 py-6 md:py-7">
+              <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
+                <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#12334A]">
+                  Residential Interiors
+                </h3>
 
-            {/* Tags */}
-            <div className="mt-6 pt-4 border-t border-black/5 flex flex-wrap gap-2">
-              {item.tags.map((tag, tagIndex) => (
-                <span
-                  key={tagIndex}
-                  className="text-[10px] uppercase tracking-wide bg-[#F7F5F2] text-black/60 px-2.5 py-1.5 rounded-md border border-black/5"
-                >
-                  {tag}
-                </span>
-              ))}
+                <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-2xl">
+                  Personalised interiors designed around your lifestyle, taste
+                  and everyday needs.
+                </p>
+              </div>
+            </div>
+
+            {/* Space Planning */}
+            <div className="group border-b border-neutral-300 py-6 md:py-7">
+              <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
+                <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#12334A]">
+                  Space Planning & 3D Visuals
+                </h3>
+
+                <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-2xl">
+                  Smart layouts and realistic visualisation to help you
+                  experience the space before execution.
+                </p>
+              </div>
+            </div>
+
+            {/* Modular Kitchens */}
+            <div className="group border-b border-neutral-300 py-6 md:py-7">
+              <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
+                <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#12334A]">
+                  Modular Kitchens & Custom Furniture
+                </h3>
+
+                <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-2xl">
+                  Custom solutions designed to maximise storage, functionality
+                  and visual simplicity.
+                </p>
+              </div>
+            </div>
+
+            {/* Turnkey Execution */}
+            <div className="group border-b border-neutral-300 py-6 md:py-7">
+              <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
+                <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#12334A]">
+                  Turnkey Execution
+                </h3>
+
+                <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-2xl">
+                  A coordinated design-to-execution experience with attention to
+                  craftsmanship, quality and every detail.
+                </p>
+              </div>
+            </div>
+
+            {/* Interior Styling */}
+            <div className="group border-b border-neutral-300 py-6 md:py-7">
+              <div className="grid md:grid-cols-[1fr_2fr] gap-3 md:gap-10 items-start">
+                <h3 className="text-lg md:text-xl font-normal tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-[#12334A]">
+                  Interior Styling
+                </h3>
+
+                <p className="text-sm md:text-base text-neutral-600 leading-relaxed max-w-2xl">
+                  The finishing layer of materials, lighting, colours and décor
+                  that brings the entire space together.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      ))}
-    </div>
+      </section>
 
-    {/* Bottom Statement */}
-    <div className="mt-10 text-center">
-      <p className="text-sm text-black/50 font-light">
-        Thoughtful design. Clear communication. Attention to every detail.
-      </p>
-    </div>
+      {/* Design Process Section */}
+      {/* Design Process Section */}
+      <section
+        id="process"
+        className="py-16 md:py-20 px-6 bg-[#F7F1E7] relative overflow-hidden"
+      >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#12334A]/5 rounded-full blur-3xl pointer-events-none" />
 
-  </div>
-</section>
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Section Heading */}
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-14">
+            <p className="uppercase tracking-[0.25em] text-xs font-semibold text-[#12334A] mb-3">
+              Our Design Journey
+            </p>
+
+            <h2 className="text-3xl md:text-5xl font-light leading-tight text-slate-900">
+              From your first idea to a space that feels like home.
+            </h2>
+
+            <p className="mt-4 text-black/60 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed">
+              Every project begins with understanding you. We combine thoughtful
+              design, detailed planning, and careful execution to create spaces
+              that are beautiful, functional, and uniquely yours.
+            </p>
+          </div>
+
+          {/* Process Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                number: "01",
+                title: "Discover",
+                subtitle: "We listen before we design.",
+                desc: "We understand your lifestyle, preferences, aspirations, space, and budget. This is where your ideas become the foundation of the design.",
+                tags: ["Client Brief", "Site Visit", "Lifestyle & Needs"],
+              },
+              {
+                number: "02",
+                title: "Imagine",
+                subtitle: "Your space starts taking shape.",
+                desc: "We translate ideas into layouts, mood boards, materials, colours, lighting concepts, and realistic 3D visuals so you can experience the design before execution.",
+                tags: ["Space Planning", "Mood Boards", "3D Visuals"],
+              },
+              {
+                number: "03",
+                title: "Refine",
+                subtitle: "Every detail has a purpose.",
+                desc: "Once the design direction is approved, we refine every element—from finishes and furniture to electrical points, joinery details, and final specifications.",
+                tags: ["Material Selection", "Working Drawings", "BOQ"],
+              },
+              {
+                number: "04",
+                title: "Create",
+                subtitle: "We bring the vision to life.",
+                desc: "Our team coordinates execution, craftsmanship, installations, and quality checks while keeping the design intent at the heart of every detail.",
+                tags: ["Execution", "Site Supervision", "Handover"],
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="group relative bg-white rounded-[24px] p-6 md:p-7 border border-black/5 shadow-sm hover:shadow-lg hover:-translate-y-1.5 transition-all duration-500 overflow-hidden"
+              >
+                {/* Background Number */}
+                <span className="absolute -top-4 -right-1 text-[90px] font-serif text-black/[0.035] group-hover:text-[#12334A]/10 transition-colors duration-500 select-none pointer-events-none">
+                  {item.number}
+                </span>
+
+                <div className="relative z-10">
+                  {/* Number + Line */}
+                  <div className="flex items-center gap-3 mb-7">
+                    <div className="w-10 h-10 rounded-full bg-[#12334A] text-white flex items-center justify-center text-[11px] font-semibold shrink-0">
+                      {item.number}
+                    </div>
+
+                    <div className="h-px flex-1 bg-black/10" />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl font-light text-slate-900 mb-2 group-hover:text-[#12334A] transition-colors">
+                    {item.title}
+                  </h3>
+
+                  {/* Subtitle */}
+                  <p className="text-sm font-medium text-black/50 mb-4">
+                    {item.subtitle}
+                  </p>
+
+                  {/* Description */}
+                  <p className="text-black/65 text-sm leading-relaxed font-light">
+                    {item.desc}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="mt-6 pt-4 border-t border-black/5 flex flex-wrap gap-2">
+                    {item.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="text-[10px] uppercase tracking-wide bg-[#F7F1E7] text-black/60 px-2.5 py-1.5 rounded-md border border-black/5"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Statement */}
+          <div className="mt-10 text-center">
+            <p className="text-sm text-black/50 font-light">
+              Thoughtful design. Clear communication. Attention to every detail.
+            </p>
+          </div>
+        </div>
+      </section>
       {/* About Section */}
-      <section id="about" className="py-24 px-6 bg-[#F7F5F2]">
+      <section id="about" className="py-24 px-6 bg-[#F7F1E7]">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
             <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/50 mb-3">
@@ -638,7 +631,7 @@ export default function InteriorStudioWebsite() {
       </section>
 
       {/* Client Experience / Testimonials Section */}
-      <section className="py-24 px-6 bg-[#F7F5F2] overflow-hidden">
+      <section className="py-24 px-6 bg-[#F7F1E7] overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/50 mb-3">
@@ -698,7 +691,7 @@ export default function InteriorStudioWebsite() {
 
       {/* Contact Section */}
       <section id="contact" className="py-24 px-6 bg-white">
-        <div className="max-w-4xl mx-auto bg-[#EAE3D9] rounded-[32px] p-8 md:p-16 text-center border border-black/5 shadow-sm">
+        <div className="max-w-4xl mx-auto bg-[#DCCDBB] rounded-[32px] p-8 md:p-16 text-center border border-black/5 shadow-sm">
           <p className="uppercase tracking-[0.2em] text-xs font-semibold text-black/60 mb-3">
             Start Your Project
           </p>
@@ -803,11 +796,6 @@ export default function InteriorStudioWebsite() {
               </h3>
               <ul className="space-y-2.5 text-sm">
                 <li>
-                  <a href="#projects" className="hover:text-black transition">
-                    Projects
-                  </a>
-                </li>
-                <li>
                   <a href="#services" className="hover:text-black transition">
                     Services
                   </a>
@@ -817,6 +805,12 @@ export default function InteriorStudioWebsite() {
                     Process
                   </a>
                 </li>
+                <li>
+                  <a href="#portfolios" className="hover:text-black transition">
+                    Portfolios
+                  </a>
+                </li>
+                
                 <li>
                   <a href="#about" className="hover:text-black transition">
                     About Studio
@@ -850,7 +844,7 @@ export default function InteriorStudioWebsite() {
                     href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#1F5D42] font-medium hover:underline"
+                    className="text-[#12334A] font-medium hover:underline"
                   >
                     Chat on WhatsApp →
                   </a>
@@ -868,7 +862,7 @@ export default function InteriorStudioWebsite() {
                   href="https://www.instagram.com/shade_designs_studio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-[#F7F5F2] border border-black/5 flex items-center justify-center text-[#1F5D42] hover:bg-black hover:text-white transition"
+                  className="w-10 h-10 rounded-full bg-[#F7F1E7] border border-black/5 flex items-center justify-center text-[#12334A] hover:bg-black hover:text-white transition"
                   aria-label="Instagram Profile"
                 >
                   <FaInstagram size={18} />
