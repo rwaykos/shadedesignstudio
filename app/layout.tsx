@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -86,25 +87,41 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         {/* Local Business Schema */}
+        
+<Script
+  src="https://www.googletagmanager.com/gtag/js?id=G-CC395J4YNX"
+  strategy="afterInteractive"
+/>
+
+<Script id="google-analytics" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-CC395J4YNX');
+  `}
+</Script>
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "InteriorDesignStudio",
-              "name": "Shade Design Studio",
-              "image": "https://shadedesignstudio.in/og-image.jpg",
+              name: "Shade Design Studio",
+              image: "https://shadedesignstudio.in/og-image.jpg",
               "@id": "https://shadedesignstudio.in",
-              "url": "https://shadedesignstudio.in",
-              "telephone": "+919975597846",
-              "priceRange": "₹₹₹",
-              "address": {
+              url: "https://shadedesignstudio.in",
+              telephone: "+919975597846",
+              priceRange: "₹₹₹",
+              address: {
                 "@type": "PostalAddress",
-                "addressLocality": "Pune",
-                "addressRegion": "MH",
-                "addressCountry": "IN"
+                addressLocality: "Pune",
+                addressRegion: "MH",
+                addressCountry: "IN",
               },
-              "areaServed": [
+              areaServed: [
                 "Pune",
                 "PCMC",
                 "Baner",
@@ -117,8 +134,8 @@ export default function RootLayout({
                 "Viman Nagar",
                 "Hadapsar",
                 "Magarpatta",
-                "Bavdhan"
-              ]
+                "Bavdhan",
+              ],
             }),
           }}
         />
