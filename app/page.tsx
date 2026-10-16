@@ -74,6 +74,28 @@ export default function InteriorStudioWebsite() {
   const [submitted, setSubmitted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+
+  const trackWhatsAppClick = (buttonLocation: string) => {
+    if (typeof window === "undefined") return;
+
+    const gtag = (
+      window as Window & {
+        gtag?: (
+          command: string,
+          eventName: string,
+          parameters?: Record<string, string>
+        ) => void;
+      }
+    ).gtag;
+
+    if (typeof gtag === "function") {
+      gtag("event", "whatsapp_click", {
+        button_location: buttonLocation,
+      });
+    }
+  };
+
+
   const services = [
     {
       title: "Residential Interiors",
@@ -162,6 +184,7 @@ export default function InteriorStudioWebsite() {
               href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("desktop_header")}
               className="bg-[#12334A] text-white px-5 py-2 rounded-full text-xs font-semibold tracking-wide hover:bg-[#A95737] transition inline-flex items-center gap-2"
             >
               <FaWhatsapp size={16} />
@@ -228,6 +251,7 @@ export default function InteriorStudioWebsite() {
   href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
   target="_blank"
   rel="noopener noreferrer"
+  onClick={() => trackWhatsAppClick("mobile_menu")}
   className="w-full inline-flex items-center justify-center gap-2 bg-[#12334A] text-white px-5 py-3 rounded-full text-sm font-medium hover:bg-[#A95737] transition"
 >
   <FaWhatsapp size={17} />
@@ -841,6 +865,7 @@ export default function InteriorStudioWebsite() {
                     href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackWhatsAppClick("footer")}
                     className="text-[#12334A] font-medium hover:underline"
                   >
                     Chat on WhatsApp →
