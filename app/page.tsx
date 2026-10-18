@@ -173,7 +173,7 @@ export default function InteriorStudioWebsite() {
 
           <div className="hidden sm:flex items-center gap-3">
             <a
-              href="tel:+919975597846"
+              href="tel:+919975695268"
               className="bg-[#12334A] text-white px-4 py-2 rounded-full text-xs font-semibold tracking-wider hover:bg-[#A95737] transition inline-flex items-center gap-2"
             >
               <FaPhoneAlt size={12} />
@@ -181,7 +181,7 @@ export default function InteriorStudioWebsite() {
             </a>
 
             <a
-              href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
+              href="https://wa.me/919975695268?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick("desktop_header")}
@@ -242,13 +242,13 @@ export default function InteriorStudioWebsite() {
             </a>
             <div className="pt-4 flex flex-col gap-3">
               <a
-                href="tel:+919975597846"
+                href="tel:+919975695268"
                 className="bg-[#12334A] text-white px-5 py-3 rounded-full text-sm text-center font-medium inline-flex items-center justify-center gap-2"
               >
                 <FaPhoneAlt size={14} /> Call Us
               </a>
               <a
-  href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
+  href="https://wa.me/919975695268?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
   target="_blank"
   rel="noopener noreferrer"
   onClick={() => trackWhatsAppClick("mobile_menu")}
@@ -853,16 +853,16 @@ export default function InteriorStudioWebsite() {
               <ul className="space-y-2.5 text-sm">
                 <li>
                   <a
-                    href="tel:+919975597846"
+                    href="tel:+919975695268"
                     className="hover:text-black transition font-medium"
                   >
-                    +91 94030 32870
+                    +91 99756 95268
                   </a>
                 </li>
                 <li className="text-black/60">Pune & PCMC, Maharashtra</li>
                 <li>
                   <a
-                    href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio"
+                    href="https://wa.me/919975695268?text=Hi%20Shade%20Design%20Studio"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackWhatsAppClick("footer")}

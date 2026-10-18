@@ -3,6 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "../../Data/projects";
 import ProjectGallery from "../ProjectGallery";
+import {
+  FaWhatsapp,
+} from "react-icons/fa";
 
 type PageProps = {
   params: Promise<{
@@ -36,7 +39,7 @@ export default async function ProjectPage({ params }: PageProps) {
     projects[(projectIndex + 1) % projects.length];
 
   return (
-    <main className="bg-[#F7F5F2] min-h-screen">
+    <main className="bg-[#F7F1E7] min-h-screen">
 
       {/* Header */}
       <header className="sticky top-0 z-50 bg-[#F7F5F2]/95 backdrop-blur-md border-b border-black/5">
@@ -54,17 +57,20 @@ export default async function ProjectPage({ params }: PageProps) {
               className="object-contain"
             />
 
-            <span className="text-lg md:text-xl font-semibold tracking-wide">
-              Shade Design Studio
-            </span>
+            <span className="text-lg md:text-xl font-semibold tracking-wide text-[#12334A]">
+  Shade Design Studio
+</span>
           </Link>
 
-          <Link
-            href="/#contact"
-            className="bg-[#1F5D42] text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-[#174832] transition"
-          >
-            Book Consultation
-          </Link>
+          <a
+                        href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-[#12334A] text-white px-5 py-2 rounded-full text-xs font-semibold tracking-wide hover:bg-[#A95737] transition inline-flex items-center gap-2"
+                      >
+                        <FaWhatsapp size={16} />
+                        Book via WhatsApp
+                      </a>
 
         </div>
       </header>
