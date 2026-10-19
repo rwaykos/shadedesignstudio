@@ -45,22 +45,21 @@ export default async function ProjectPage({ params }: PageProps) {
       <header className="sticky top-0 z-50 bg-[#F7F5F2]/95 backdrop-blur-md border-b border-black/5">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-          <Link
-            href="/"
-            className="flex items-center gap-3"
+           <a
+            href="#"
+            className="flex items-center shrink-0"
+            aria-label="Shade Design Studio Home"
           >
             <Image
-              src="/shade-logo.png"
+              src="/shade-design-studio-header-fixed.svg"
               alt="Shade Design Studio"
-              width={55}
-              height={55}
-              className="object-contain"
+              width={1000}
+              height={286}
+              priority
+              unoptimized
+              className="w-[220px] md:w-[300px] h-auto object-contain"
             />
-
-            <span className="text-lg md:text-xl font-semibold tracking-wide text-[#12334A]">
-  Shade Design Studio
-</span>
-          </Link>
+          </a>
 
           <a
                         href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
