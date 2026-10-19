@@ -45,8 +45,8 @@ export default async function ProjectPage({ params }: PageProps) {
       <header className="sticky top-0 z-50 bg-[#F7F5F2]/95 backdrop-blur-md border-b border-black/5">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-           <a
-            href="#"
+           <Link
+            href="/"
             className="flex items-center shrink-0"
             aria-label="Shade Design Studio Home"
           >
@@ -59,7 +59,7 @@ export default async function ProjectPage({ params }: PageProps) {
               unoptimized
               className="w-[220px] md:w-[300px] h-auto object-contain"
             />
-          </a>
+          </Link>
 
           <a
                         href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
