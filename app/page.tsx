@@ -74,7 +74,6 @@ export default function InteriorStudioWebsite() {
   const [submitted, setSubmitted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-
   const trackWhatsAppClick = (buttonLocation: string) => {
     if (typeof window === "undefined") return;
 
@@ -83,7 +82,7 @@ export default function InteriorStudioWebsite() {
         gtag?: (
           command: string,
           eventName: string,
-          parameters?: Record<string, string>
+          parameters?: Record<string, string>,
         ) => void;
       }
     ).gtag;
@@ -94,7 +93,6 @@ export default function InteriorStudioWebsite() {
       });
     }
   };
-
 
   const services = [
     {
@@ -124,18 +122,21 @@ export default function InteriorStudioWebsite() {
       {/* Header / Navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#F7F1E7]/80 backdrop-blur-md border-b border-black/5 transition-all">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-3">
-            <Image
-              src="/shade-logo.png"
-              alt="Shade Design Studio Logo"
-              width={48}
-              height={48}
-              className="h-12 w-auto object-contain"
-            />
-            <span className="text-lg md:text-xl font-semibold tracking-wide whitespace-nowrap">
-              Shade Design Studio
-            </span>
-          </a>
+          		 <a
+  href="#"
+  className="flex items-center shrink-0"
+  aria-label="Shade Design Studio Home"
+>
+  <Image
+    src="/shade-design-studio-header-fixed.svg"
+    alt="Shade Design Studio"
+    width={1000}
+    height={286}
+    priority
+    unoptimized
+    className="w-[180px] md:w-[300px] h-auto object-contain"
+  />
+</a>
 
           <nav className="hidden lg:flex gap-8 text-sm font-medium tracking-wide text-slate-800">
             <a
@@ -248,15 +249,15 @@ export default function InteriorStudioWebsite() {
                 <FaPhoneAlt size={14} /> Call Us
               </a>
               <a
-  href="https://wa.me/919975695268?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
-  target="_blank"
-  rel="noopener noreferrer"
-  onClick={() => trackWhatsAppClick("mobile_menu")}
-  className="w-full inline-flex items-center justify-center gap-2 bg-[#12334A] text-white px-5 py-3 rounded-full text-sm font-medium hover:bg-[#A95737] transition"
->
-  <FaWhatsapp size={17} />
-  <span>Book via WhatsApp</span>
-</a>
+                href="https://wa.me/919975695268?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("mobile_menu")}
+                className="w-full inline-flex items-center justify-center gap-2 bg-[#12334A] text-white px-5 py-3 rounded-full text-sm font-medium hover:bg-[#A95737] transition"
+              >
+                <FaWhatsapp size={17} />
+                <span>Book via WhatsApp</span>
+              </a>
             </div>
           </div>
         )}
@@ -304,85 +305,11 @@ export default function InteriorStudioWebsite() {
           </div>
         </div>
       </section>
-      {/* Projects Section */}
-      <section id="portfolios" className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          {/* Heading */}
-          <div className="max-w-3xl mb-14">
-            <p className="text-sm font-semibold tracking-[0.25em] uppercase text-[#12334A] mb-4">
-              Selected Portfolio
-            </p>
-
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900">
-              Spaces designed around the way you live.
-            </h2>
-
-            <p className="mt-5 text-lg text-neutral-600 leading-relaxed">
-              Explore our residential interiors, where thoughtful planning,
-              timeless design and quality execution come together.
-            </p>
-          </div>
-
-          {/* Projects */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
-              <Link
-                key={project.slug}
-                href={`/projects/${project.slug}`}
-                className="group block"
-              >
-                <div className="relative h-[460px] overflow-hidden rounded-3xl bg-neutral-100">
-                  {/* Project Image */}
-                  <Image
-                    src={project.coverImage}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-
-                  {/* Dark gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-                  {/* Arrow */}
-                  <div className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:text-black">
-                    ↗
-                  </div>
-
-                  {/* Project Info */}
-                  <div className="absolute bottom-0 left-0 right-0 p-7 text-white">
-                    <p className="text-sm text-white/70 mb-2">
-                      {project.type} · {project.location}
-                    </p>
-
-                    <h3 className="text-2xl font-semibold tracking-tight">
-                      {project.title}
-                    </h3>
-
-                    <div className="mt-4 flex items-center gap-2 text-sm text-white/70 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                      View Project
-                      <span>→</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Bottom CTA */}
-          <div className="mt-14 flex justify-center">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-[#12334A] text-white px-7 py-3.5 rounded-full font-medium hover:bg-[#A95737] transition"
-            >
-              Start Your Project
-              <span>→</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* Services Section */}
-      <section id="services" className="bg-[#F7F1E7] py-20 md:py-24">
+      <section
+        id="services"
+        className="bg-[#F7F1E7] pt-20 md:pt-24 pb-8 md:pb-10"
+      >
         <div className="max-w-7xl mx-auto px-6">
           {/* Section Header */}
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-12">
@@ -478,12 +405,20 @@ export default function InteriorStudioWebsite() {
           </div>
         </div>
       </section>
-
-      {/* Design Process Section */}
+      {/* Transition between Services and Design Journey */}
+      <div className="bg-[#F7F1E7] px-6 py-2">
+        <div className="max-w-7xl mx-auto flex items-center gap-4">
+          <div className="h-px flex-1 bg-[#A95737]/30" />
+          <p className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-[#A95737] text-center">
+            Thoughtfully Designed. Intentionally Created.
+          </p>
+          <div className="h-px flex-1 bg-[#A95737]/30" />
+        </div>
+      </div>
       {/* Design Process Section */}
       <section
         id="process"
-        className="py-16 md:py-20 px-6 bg-[#F7F1E7] relative overflow-hidden"
+        className="pt-8 md:pt-10 pb-12 md:pb-16 px-6 bg-[#F7F1E7] relative overflow-hidden"
       >
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#12334A]/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -595,6 +530,83 @@ export default function InteriorStudioWebsite() {
           </div>
         </div>
       </section>
+      {/* Projects Section */}
+      <section id="portfolios" className="py-24 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <div className="max-w-3xl mb-14">
+            <p className="text-sm font-semibold tracking-[0.25em] uppercase text-[#12334A] mb-4">
+              Selected Portfolio
+            </p>
+
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900">
+              Spaces designed around the way you live.
+            </h2>
+
+            <p className="mt-5 text-lg text-neutral-600 leading-relaxed">
+              Explore our residential interiors, where thoughtful planning,
+              timeless design and quality execution come together.
+            </p>
+          </div>
+
+          {/* Projects */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project) => (
+              <Link
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                className="group block"
+              >
+                <div className="relative h-[460px] overflow-hidden rounded-3xl bg-neutral-100">
+                  {/* Project Image */}
+                  <Image
+                    src={project.coverImage}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Dark gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                  {/* Arrow */}
+                  <div className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:text-black">
+                    ↗
+                  </div>
+
+                  {/* Project Info */}
+                  <div className="absolute bottom-0 left-0 right-0 p-7 text-white">
+                    <p className="text-sm text-white/70 mb-2">
+                      {project.type} · {project.location}
+                    </p>
+
+                    <h3 className="text-2xl font-semibold tracking-tight">
+                      {project.title}
+                    </h3>
+
+                    <div className="mt-4 flex items-center gap-2 text-sm text-white/70 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                      View Project
+                      <span>→</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="mt-14 flex justify-center">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 bg-[#12334A] text-white px-7 py-3.5 rounded-full font-medium hover:bg-[#A95737] transition"
+            >
+              Start Your Project
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section id="about" className="py-24 px-6 bg-[#F7F1E7]">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
