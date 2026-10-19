@@ -134,7 +134,7 @@ export default function InteriorStudioWebsite() {
     height={286}
     priority
     unoptimized
-    className="w-[180px] md:w-[300px] h-auto object-contain"
+    className="w-[220px] md:w-[300px] h-auto object-contain"
   />
 </a>
 
