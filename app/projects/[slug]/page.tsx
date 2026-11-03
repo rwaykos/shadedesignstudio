@@ -62,7 +62,7 @@ export default async function ProjectPage({ params }: PageProps) {
           </Link>
 
           <a
-                        href="https://wa.me/919975597846?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
+                        href="https://wa.me/919975695268?text=Hi%20Shade%20Design%20Studio,%20I%20want%20to%20book%20a%20consultation."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-[#12334A] text-white px-5 py-2 rounded-full text-xs font-semibold tracking-wide hover:bg-[#A95737] transition inline-flex items-center gap-2"
